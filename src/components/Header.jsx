@@ -512,7 +512,7 @@ export function Header() {
                     <motion.div variants={menuItemVariants} className="py-2">
                       <motion.div className="w-full">
                         <button
-                          className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 border border-gray-200 text-gray-700 rounded-lg cursor-pointer font-medium text-lg hover:bg-gray-100 hover:border-gray-300 transition-all duration-300"
+                          className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 border border-gray-200 text-gray-700 rounded-lg cursor-pointer font-medium hover:bg-gray-100 hover:border-gray-300 transition-all duration-300"
                           onClick={() => setShowCategoriesDropdown(!showCategoriesDropdown)}
                         >
                           📚 Exam Categories
@@ -526,18 +526,17 @@ export function Header() {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
-                            // max-h-[400px] overflow-y-auto
-                            className="bg-gray-50/50 rounded-lg mt-2 p-3"
+                            className="bg-gray-50/50 rounded-lg mt-2 p-3 max-h-[400px] overflow-y-auto"
                           >
                             {Object.entries(categories).map(([key, category]) => (
                               <div key={key} className="mb-2">
                                 <div
-                                  className="flex items-center p-3 my-1 bg-white rounded-lg hover:bg-blue-50 hover:translate-x-1 transition-all duration-300 cursor-pointer shadow-sm border border-gray-100 text-lg"
+                                  className="flex items-center p-3 my-1 bg-white rounded-lg hover:bg-blue-50 hover:translate-x-1 transition-all duration-300 cursor-pointer shadow-sm border border-gray-100"
                                   onClick={() => toggleMobileCategory(key)}
                                 >
                                   <span className="mr-3 text-lg">{category.icon}</span>
                                   <span className="text-gray-700 font-medium flex-1">{category.name}</span>
-                                  <span className={`text-gray-500 text-lg transform transition-transform duration-300 ${expandedMobileCategory === key ? 'rotate-180' : ''}`}>
+                                  <span className={`text-gray-500 text-sm transform transition-transform duration-300 ${expandedMobileCategory === key ? 'rotate-180' : ''}`}>
                                     ▼
                                   </span>
                                 </div>
@@ -558,7 +557,7 @@ export function Header() {
                                         className="flex items-center p-3 my-1 bg-blue-50/50 rounded-lg hover:bg-blue-100/70 hover:translate-x-1 transition-all duration-300 text-gray-700 no-underline border border-blue-100/50"
                                         onClick={() => setIsMenuOpen(false)}
                                       >
-                                        <span className="mr-3 text-lg flex items-center justify-center w-6 h-6 text-blue-600">
+                                        <span className="mr-3 text-sm flex items-center justify-center w-6 h-6 text-blue-600">
                                           {exam.imageSrc ? (
                                             <img
                                               src={exam.imageSrc}
@@ -570,10 +569,10 @@ export function Header() {
                                             exam.icon
                                           )}
                                         </span>
-                                        <span className="text-gray-700 font-medium text-lg flex-1">
+                                        <span className="text-gray-700 font-medium text-sm flex-1">
                                           {exam.name}
                                         </span>
-                                        <span className="ml-auto text-gray-400 text-lg opacity-70">›</span>
+                                        <span className="ml-auto text-gray-400 text-xs opacity-70">›</span>
                                       </a>
                                     ))}
                                   </motion.div>
